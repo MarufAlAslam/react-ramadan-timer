@@ -14,9 +14,9 @@ const TopClickable = ({
         rel="noreferrer"
         className="flex p-10 justify-center items-center h-full w-full"
       >
-        {currentHr < todaysSahriTimeHr && currentMin < todaysSahriTimeMin
+        {/* {currentHr < todaysSahriTimeHr && currentMin < todaysSahriTimeMin
           ? "সেহরির সময়"
-          : "ইফতারের সময়"}
+          : "ইফতারের সময়"} */}
       </a>
     </div>
   );

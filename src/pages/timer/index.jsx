@@ -69,7 +69,13 @@ const Timer = () => {
   };
 
   return (
-    <div className="timer flex flex-col justify-between items-center">
+    <div
+      className={`${
+        currentHr < todaysSahriTimeHr && currentMin < todaysIftarTimeMin
+          ? "sahri-timer"
+          : "iftar-timer"
+      } timer flex flex-col justify-between items-center`}
+    >
       <TopClickable
         currentHr={currentHr}
         currentMin={currentMin}

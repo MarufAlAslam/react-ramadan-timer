@@ -8,3 +8,7 @@
     font-family: "ramadan";
     src: url('../fonts/ramadan-day.ttf');
 }
+@font-face {
+    font-family: "indy-bangla";
+    src: url('../fonts/IndyBangla-SemiBold-V4.ttf');
+}
