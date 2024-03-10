@@ -10,10 +10,10 @@ const MainTimer = ({ hours, minutes, seconds, convertToBangla, message }) => {
       {/* <span className="lh-1 timer-span font-bold text-xl">
         {hours > 0 && convertToBangla(hours) + " ঘন্টা "}
       </span> */}
-      <span className="lh-1 timer-span font-bold text-2xl">
+      <span className="lh-1 timer-span font-bold text-[30px]">
         {minutes > 0 && convertToBangla(minutes) + " মিনিট "}
       </span>
-      <span className="lh-1 timer-span font-bold text-2xl">
+      <span className="lh-1 timer-span font-bold text-[30px]">
         {seconds > 0 && convertToBangla(seconds) + " সেকেন্ড"}
       </span>
 
