@@ -70,11 +70,10 @@ const Timer = () => {
 
   return (
     <div
-      className={`${
-        currentHr < todaysSahriTimeHr && currentMin < todaysIftarTimeMin
-          ? "sahri-timer"
-          : "iftar-timer"
-      } timer flex flex-col justify-between items-center`}
+      className={`${currentHr < todaysSahriTimeHr
+        ? "sahri-timer"
+        : currentHr > todaysIftarTimeHr ? "sahri-timer" : "iftar-timer"
+        } timer flex flex-col justify-between items-center`}
     >
       <TopClickable
         currentHr={currentHr}
@@ -83,7 +82,7 @@ const Timer = () => {
         todaysSahriTimeMin={todaysSahriTimeMin}
       />
 
-      {currentHr < todaysSahriTimeHr && currentMin < todaysIftarTimeMin ? (
+      {currentHr < todaysSahriTimeHr ? (
         <MainTimer
           hours={hoursToSahri}
           minutes={minutesToSahri}
@@ -91,15 +90,25 @@ const Timer = () => {
           convertToBangla={convertToBangla}
           message="সেহরির সময় শেষ!!!"
         />
-      ) : (
-        <MainTimer
-          hours={hours}
-          minutes={minutes}
-          seconds={seconds}
-          convertToBangla={convertToBangla}
-          message="ইফতার এর সময় হয়েছে"
-        />
-      )}
+      ) :
+        currentHr > todaysIftarTimeHr ? (
+          <MainTimer
+            hours={hoursToSahri}
+            minutes={minutesToSahri}
+            seconds={secondsToSahri}
+            convertToBangla={convertToBangla}
+            message="কাউন্ট-ডাউন শীঘ্রই শুরু হবে"
+          />
+        ) : (
+          <MainTimer
+            hours={hours}
+            minutes={minutes}
+            seconds={seconds}
+            convertToBangla={convertToBangla}
+            message="ইফতার এর সময় হয়েছে"
+          />
+        )
+      }
     </div>
   );
 };
