@@ -14,12 +14,12 @@ const Timer = () => {
   }, []);
 
   // set sahri time
-  const todaysSahriTimeHr = 3;
-  const todaysSahriTimeMin = 40;
+  const todaysSahriTimeHr = 4;
+  const todaysSahriTimeMin = 51;
 
   // set iftar time
   const todaysIftarTimeHr = 6;
-  const todaysIftarTimeMin = 45;
+  const todaysIftarTimeMin = 10;
 
   // current time
   const currentHr = new Date().getHours();
