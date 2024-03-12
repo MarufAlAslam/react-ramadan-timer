@@ -10,6 +10,13 @@
     background-size: cover;
 }
 
+.sahri-coming {
+    background: url("../img/sahri-time.gif");
+}
+.iftar-coming {
+    background: url("../img/iftar-time.gif");
+}
+
 .iftar-timer {
     background: url("../img/iftar.gif");
 }

@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import TopClickable from "../../components/top-clickable";
 import MainTimer from "../../components/main-timer";
+import FixedTimer from "../../components/fixed-timer";
 
 const Timer = () => {
   const currentTime = new Date().getTime();
@@ -68,41 +69,113 @@ const Timer = () => {
     return banglaTime;
   };
 
-  console.log(currentHr, currentMin, todaysIftarTimeHr+12, todaysIftarTimeMin)
+  // console.log(currentHr, currentMin, todaysIftarTimeHr + 12, todaysIftarTimeMin)
 
   return (
-    <div
-      className={`${currentHr <= todaysSahriTimeHr && currentMin <= todaysSahriTimeMin
-        ? "sahri-timer"
-        : currentHr > todaysIftarTimeHr+12 ? "sahri-timer" : "iftar-timer"
-        } timer flex flex-col justify-between items-center`}
-    >
-      <TopClickable
-        currentHr={currentHr}
-        currentMin={currentMin}
-        todaysSahriTimeHr={todaysSahriTimeHr}
-        todaysSahriTimeMin={todaysSahriTimeMin}
-      />
+    // <div
+    //   className={`${currentHr <= todaysSahriTimeHr && currentMin <= todaysSahriTimeMin
+    //     ? "sahri-timer"
+    //     : currentHr > todaysIftarTimeHr+12 ? "sahri-timer" : "iftar-timer"
+    //     } timer flex flex-col justify-between items-center`}
+    // >
+    //   <TopClickable
+    //     currentHr={currentHr}
+    //     currentMin={currentMin}
+    //     todaysSahriTimeHr={todaysSahriTimeHr}
+    //     todaysSahriTimeMin={todaysSahriTimeMin}
+    //   />
 
-      {currentHr <= todaysSahriTimeHr && currentMin <= todaysSahriTimeMin ? (
-        <MainTimer
-          hours={hoursToSahri}
-          minutes={minutesToSahri}
-          seconds={secondsToSahri}
-          convertToBangla={convertToBangla}
-          message="সাহরির সময় শেষ!!!"
-        />
-      ) :
-        currentHr >= (todaysIftarTimeHr+12) ? (
+    //   {currentHr <= todaysSahriTimeHr && currentMin <= todaysSahriTimeMin ? (
+    //     <MainTimer
+    //       hours={hoursToSahri}
+    //       minutes={minutesToSahri}
+    //       seconds={secondsToSahri}
+    //       convertToBangla={convertToBangla}
+    //       message="সাহরির সময় শেষ!!!"
+    //     />
+    //   ) :
+    //     currentHr >= (todaysIftarTimeHr+12) ? (
+    //       <MainTimer
+    //         hours={hoursToSahri}
+    //         minutes={minutesToSahri}
+    //         seconds={secondsToSahri}
+    //         convertToBangla={convertToBangla}
+    //         message="কাউন্ট-ডাউন শীঘ্রই শুরু হবে"
+    //       />
+    //     ) : 
+    //     (
+    //       <MainTimer
+    //         hours={hours}
+    //         minutes={minutes}
+    //         seconds={seconds}
+    //         convertToBangla={convertToBangla}
+    //         message="ইফতার এর সময় হয়েছে"
+    //       />
+    //     )
+    //   }
+    // </div>
+
+    <>
+      {
+        currentHr < 3 &&
+        <div
+          className={`sahri-coming timer flex flex-col justify-between items-center`}
+        >
+          <TopClickable
+            currentHr={currentHr}
+            currentMin={currentMin}
+            todaysSahriTimeHr={todaysSahriTimeHr}
+            todaysSahriTimeMin={todaysSahriTimeMin}
+          />
+          <FixedTimer hour={todaysSahriTimeHr} minute={todaysSahriTimeMin} convertToBangla={convertToBangla} />
+        </div>
+      }
+
+      {
+        currentHr >= 3 && currentHr < todaysSahriTimeHr + 1 &&
+        <div
+          className={`sahri-timer timer flex flex-col justify-between items-center`}
+        >
+          <TopClickable
+            currentHr={currentHr}
+            currentMin={currentMin}
+            todaysSahriTimeHr={todaysSahriTimeHr}
+            todaysSahriTimeMin={todaysSahriTimeMin}
+          />
           <MainTimer
             hours={hoursToSahri}
             minutes={minutesToSahri}
             seconds={secondsToSahri}
             convertToBangla={convertToBangla}
-            message="কাউন্ট-ডাউন শীঘ্রই শুরু হবে"
+            message="সাহরির সময় শেষ!!!"
           />
-        ) : 
-        (
+        </div>
+      }
+
+      {
+        currentHr >= todaysSahriTimeHr + 1 && currentHr < 17 && <div
+          className={`iftar-coming timer flex flex-col justify-between items-center`}
+        >
+          <TopClickable
+            currentHr={currentHr}
+            currentMin={currentMin}
+            todaysSahriTimeHr={todaysSahriTimeHr}
+            todaysSahriTimeMin={todaysSahriTimeMin}
+          />
+          <FixedTimer hour={todaysIftarTimeHr} minute={todaysIftarTimeMin} convertToBangla={convertToBangla} />
+        </div>
+      }
+
+      {
+        currentHr >= 17 && <div
+          className={`iftar-timer timer flex flex-col justify-between items-center`}
+        >
+          <TopClickable
+            currentHr={currentHr}
+            currentMin={currentMin}
+            todaysSahriTimeHr={todaysSahriTimeHr}
+            todaysSahriTimeMin={todaysSahriTimeMin}
+          />
           <MainTimer
             hours={hours}
             minutes={minutes}
@@ -110,9 +183,9 @@ const Timer = () => {
             convertToBangla={convertToBangla}
             message="ইফতার এর সময় হয়েছে"
           />
-        )
+        </div>
       }
-    </div>
+    </>
   );
 };
 
