@@ -88,7 +88,7 @@ const Timer = () => {
           minutes={minutesToSahri}
           seconds={secondsToSahri}
           convertToBangla={convertToBangla}
-          message="সাহরীর সময় শেষ!!!"
+          message="সাহরির সময় শেষ!!!"
         />
       ) :
         currentHr >= todaysIftarTimeHr+12 && currentMin >= todaysSahriTimeMin ? (
