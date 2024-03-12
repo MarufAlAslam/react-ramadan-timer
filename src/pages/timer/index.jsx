@@ -68,14 +68,11 @@ const Timer = () => {
     return banglaTime;
   };
 
-  console.log("currentHr", currentHr);
-  console.log("currentMin", currentMin);
-
   return (
     <div
       className={`${currentHr <= todaysSahriTimeHr && currentMin <= todaysSahriTimeMin
         ? "sahri-timer"
-        : currentHr > todaysIftarTimeHr ? "sahri-timer" : "iftar-timer"
+        : currentHr > todaysIftarTimeHr+12 ? "sahri-timer" : "iftar-timer"
         } timer flex flex-col justify-between items-center`}
     >
       <TopClickable
@@ -94,7 +91,7 @@ const Timer = () => {
           message="সাহরীর সময় শেষ!!!"
         />
       ) :
-        currentHr >= todaysIftarTimeHr && currentMin >= todaysSahriTimeMin ? (
+        currentHr >= todaysIftarTimeHr+12 && currentMin >= todaysSahriTimeMin ? (
           <MainTimer
             hours={hoursToSahri}
             minutes={minutesToSahri}
