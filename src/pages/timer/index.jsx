@@ -185,6 +185,21 @@ const Timer = () => {
           />
         </div>
       }
+
+      {
+        currentHr > todaysIftarTimeHr + 13 &&
+        <div
+          className={`sahri-coming timer flex flex-col justify-between items-center`}
+        >
+          <TopClickable
+            currentHr={currentHr}
+            currentMin={currentMin}
+            todaysSahriTimeHr={todaysSahriTimeHr}
+            todaysSahriTimeMin={todaysSahriTimeMin}
+          />
+          <FixedTimer hour={todaysSahriTimeHr} minute={todaysSahriTimeMin} convertToBangla={convertToBangla} />
+        </div>
+      }
     </>
   );
 };
