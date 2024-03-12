@@ -68,6 +68,8 @@ const Timer = () => {
     return banglaTime;
   };
 
+  console.log(currentHr, currentMin, todaysIftarTimeHr+12, todaysIftarTimeMin)
+
   return (
     <div
       className={`${currentHr <= todaysSahriTimeHr && currentMin <= todaysSahriTimeMin
@@ -91,7 +93,7 @@ const Timer = () => {
           message="সাহরির সময় শেষ!!!"
         />
       ) :
-        currentHr >= todaysIftarTimeHr+12 && currentMin >= todaysSahriTimeMin ? (
+        currentHr >= (todaysIftarTimeHr+12) ? (
           <MainTimer
             hours={hoursToSahri}
             minutes={minutesToSahri}
