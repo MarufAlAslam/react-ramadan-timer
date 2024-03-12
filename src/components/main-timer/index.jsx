@@ -1,7 +1,7 @@
 import React from "react";
 
 const MainTimer = ({ hours, minutes, seconds, convertToBangla, message }) => {
-  return hours <= 1 && minutes === 0 && seconds === 0 ? (
+  return hours <= 1 ? (
     <div
       className={`bottom main-timer text-white w-full p-3 ${
         hours >= 0 && minutes >= 0 && seconds >= 0 && "gap-2"
