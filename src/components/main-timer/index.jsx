@@ -17,13 +17,13 @@ const MainTimer = ({ hours, minutes, seconds, convertToBangla, message }) => {
         {seconds > 0 && convertToBangla(seconds) + " সেকেন্ড"}
       </span>
 
-      <span className="lh-1 timer-span font-bold text-xl">
+      <span className="lh-1 timer-span font-bold text-2xl">
         {minutes <= 0 && seconds <= 0 && message}
       </span>
     </div>
   ) : (
     <div className="bottom main-timer text-white w-full p-3 flex justify-center items-center">
-      <span className="lh-1 timer-span font-bold text-xl">
+      <span className="lh-1 timer-span font-bold text-2xl">
         কাউন্ট-ডাউন শীঘ্রই শুরু হবে
       </span>
     </div>
