@@ -16,7 +16,7 @@ const Timer = () => {
 
   // set sahri time
   const todaysSahriTimeHr = 4;
-  const todaysSahriTimeMin = 50;
+  const todaysSahriTimeMin = 49;
 
   // set iftar time
   const todaysIftarTimeHr = 6;
