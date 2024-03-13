@@ -1,1 +1,1 @@
-<img src="./index.PNG" />
+<img src="./src/assets/img/calendar.jpg" />

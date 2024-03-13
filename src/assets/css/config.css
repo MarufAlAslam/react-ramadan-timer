@@ -12,3 +12,11 @@
     font-family: "indy-bangla";
     src: url('../fonts/IndyBangla-SemiBold-V4.ttf');
 }
+
+.ramadan {
+    font-family: 'ramadan';
+}
+
+.serif {
+    font-family: 'indy-bangla';
+}
