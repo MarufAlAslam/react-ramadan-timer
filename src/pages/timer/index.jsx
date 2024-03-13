@@ -300,7 +300,7 @@ const Timer = () => {
         </div>
       )}
 
-      {currentHr >= 17 && (
+      {currentHr >= 17 && currentHr < todaysIftarTimeHr + 13 && (
         <div
           className={`iftar-timer timer flex flex-col justify-between items-center`}
         >
