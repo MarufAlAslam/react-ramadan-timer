@@ -181,16 +181,20 @@ const Timer = () => {
   // const todaysSahriTimeMin = 49;
   const [todaysSahriTimeMin, setTodaysSahriTimeMin] = React.useState(0);
   const [todaysIftarTimeMin, setTodaysIftarTimeMin] = React.useState(0);
+  const [tomorrowsSahriTimeMin, setTomorrowsSahriTimeMin] = React.useState(0);
 
   useEffect(() => {
     // eslint-disable-next-line array-callback-return
-    ramadanData.map((data) => {
+    ramadanData.map((data, index) => {
       if (data.date === todaysDate) {
         setTodaysSahriTimeMin(data.sahriMin);
         setTodaysIftarTimeMin(data.iftarMin);
+        setTomorrowsSahriTimeMin(ramadanData[index + 1].sahriMin);
       }
     });
   }, [ramadanData, todaysDate]);
+
+  // console.log(todaysIndex)
 
   
   // current time
@@ -241,6 +245,8 @@ const Timer = () => {
   };
 
   // console.log(currentHr, currentMin, todaysIftarTimeHr + 12, todaysIftarTimeMin)
+
+
 
   return (
     <>
@@ -332,7 +338,7 @@ const Timer = () => {
           />
           <FixedTimer
             hour={todaysSahriTimeHr}
-            minute={todaysSahriTimeMin}
+            minute={tomorrowsSahriTimeMin}
             convertToBangla={convertToBangla}
           />
         </div>
