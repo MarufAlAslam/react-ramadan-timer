@@ -7,7 +7,7 @@ const MainTimer = ({ hours, minutes, seconds, convertToBangla, message }) => {
         } flex justify-center items-center`}
     >
       <span className="lh-1 timer-span font-bold text-[22px]">
-        {hours > 0 && convertToBangla(hours) + " ঘন্টা "}
+        {hours > 0 && convertToBangla(hours) + " ঘণ্টা "}
       </span>
       <span className="lh-1 timer-span font-bold text-[22px]">
         {minutes > 0 && convertToBangla(minutes) + " মিনিট "}
