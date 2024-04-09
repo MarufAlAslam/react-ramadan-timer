@@ -189,7 +189,7 @@ const Timer = () => {
       if (data.date === todaysDate) {
         setTodaysSahriTimeMin(data.sahriMin);
         setTodaysIftarTimeMin(data.iftarMin);
-       // setTomorrowsSahriTimeMin(ramadanData[index + 1].sahriMin);
+       setTomorrowsSahriTimeMin(ramadanData[index].sahriMin);
       }
     });
   }, [ramadanData, todaysDate]);
